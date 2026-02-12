@@ -1,86 +1,68 @@
-🐶 Adopet - Testes Automatizados com Cypress
+# 🐶 Adopet - Testes Automatizados com Cypress
+[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/NicolasEL01/cypress_automatizano_testes_e2e)
 
 Automação de testes E2E e API da aplicação Adopet, utilizando Cypress.
 
-Projeto desenvolvido para validar fluxos críticos da aplicação, aplicar boas práticas de automação e simular cenários reais de uso.
+Este projeto foi desenvolvido para validar os fluxos críticos da aplicação, aplicar boas práticas de automação de testes e simular cenários de uso realistas, combinando testes de interface e de API.
 
-🧪 Testes Implementados
-✅ End-to-End (E2E)
+## 🧪 Testes Implementados
 
-Cadastro (caminho feliz e caminho triste)
+### ✅ End-to-End (E2E)
+- **Cadastro:** Validação dos cenários de sucesso (caminho feliz) e de falha (caminho triste) no formulário de registro.
+- **Login:** Testes para login com credenciais válidas e inválidas.
+- **Validação de Mensagens:** Verificação das mensagens de erro e de feedback para o usuário.
+- **Navegação:** Testes que asseguram a navegação entre as diferentes páginas da aplicação.
 
-Login (sucesso e falha)
+### 🔌 Testes de API
+- **Login via API:** Autenticação de usuário utilizando `cy.request()` para obter um token de acesso.
+- **Requisições Autenticadas:** Uso do token obtido dinamicamente para realizar requisições a endpoints protegidos.
+- **Validação de Resposta:** Checagem do status da resposta e da estrutura do corpo (body) retornado pela API.
 
-Validação de mensagens de erro
+### 📊 Massa de Dados
+- **Fixtures:** Utilização de arquivos de fixtures (`usuarios.json`) para fornecer dados de teste.
+- **Testes Orientados a Dados:** Execução de múltiplos cenários de cadastro a partir de uma massa de dados, utilizando `forEach` para iterar sobre os usuários.
 
-Navegação da aplicação
+## 🧠 Conceitos Aplicados
+- **Page Object Model (POM):** Organização do código com separação de responsabilidades, utilizando seletores de elementos e ações de página em classes distintas para maior manutenibilidade e reuso.
+- **Comandos Personalizados:** Criação de comandos customizados (`cy.login()`, `cy.register()`) para simplificar e reutilizar lógicas complexas nos testes.
+- **Hooks:** Uso de `before` e `beforeEach` para executar pré-condições, como visitar a página ou obter um token de autenticação antes dos testes.
+- **Interceptação de Requisições:** Utilização de `cy.intercept()` para simular respostas da API (stubs), permitindo testar cenários de falha do backend, como um erro 400 no login.
+- **Autenticação via API:** Abordagem híbrida que combina testes de UI com login via API para agilizar a execução dos testes que necessitam de um usuário autenticado.
 
-🔌 Testes de API
+## ▶ Como Executar
 
-Login via cy.request()
+### Pré-requisitos
+- [Node.js](https://nodejs.org/en/) instalado.
 
-Captura dinâmica de token
-
-Requisições autenticadas
-
-Validação de status e estrutura de resposta
-
-📊 Massa de Dados
-
-Uso de fixtures
-
-Execução de múltiplos cenários com forEach
-
-Teste orientado a dados (Data-Driven Testing)
-
-🧠 Conceitos Aplicados
-
-Hooks (before, beforeEach)
-
-cy.intercept() (simulação de erro)
-
-Comandos personalizados
-
-Page Object Model (POM)
-
-Autenticação dinâmica via API
-
-Boas práticas de segurança (sem token hardcoded)
-
-▶ Como Executar
-
-Instalar dependências:
-
+### Instalação
+Clone o repositório e instale as dependências:
+```bash
+git clone https://github.com/NicolasEL01/cypress_automatizano_testes_e2e.git
+cd cypress_automatizano_testes_e2e
 npm install
+```
 
+### Execução dos Testes
+Você pode executar os testes de diferentes maneiras:
 
-Executar com interface:
-
+**1. Abrir o Cypress Test Runner (Modo Interativo):**
+```bash
 npx cypress open
+```
 
-
-Executar em modo headless:
-
+**2. Executar todos os testes em modo Headless:**
+```bash
 npx cypress run
+```
 
-
-Executar teste específico:
-
+**3. Executar um arquivo de teste específico em modo Headless:**
+```bash
 npx cypress run --spec "cypress/e2e/api-mensagens.cy.js"
+```
 
-🚀 Diferenciais do Projeto
+### Relatórios de Teste
+Este projeto está configurado com `mochawesome` para gerar relatórios HTML dos resultados dos testes. Os relatórios serão salvos no diretório `cypress/results`.
 
-Integração UI + API
-
-Simulação de erros do back-end
-
-Organização escalável
-
-Código reutilizável
-
-Estrutura pronta para CI/CD
-
-👨‍💻 Autor
-
-Nicolas Evangelista Leocadio
-QA | Automação de Testes | Back-end em formação
+## 👨‍💻 Autor
+**Nicolas Evangelista Leocadio**
+- QA | Automação de Testes | Back-end em formação
