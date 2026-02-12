@@ -1,5 +1,4 @@
 # 🐶 Adopet - Testes Automatizados com Cypress
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/NicolasEL01/cypress_automatizano_testes_e2e)
 
 Automação de testes E2E e API da aplicação Adopet, utilizando Cypress.
 
